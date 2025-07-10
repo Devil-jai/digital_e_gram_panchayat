@@ -3,6 +3,9 @@ import './App.css'
 import UserRegistration from './components/Users/UserRegistration'
 import { Toaster } from 'react-hot-toast'
 import HomePage from './components/Pages/HomePage'
+import UserLogin from './components/Users/UserLogin'
+import AdminLogin from './components/Admin/AdminLogin'
+import CreateService from './components/Admin/CreateService'
 
 
 function App() {
@@ -13,6 +16,9 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/userRegistration' element={<UserRegistration/>}/>
+        <Route path='/userLogin' element={<UserLogin/>}/>
+        <Route path='/adminLogin' element={<AdminLogin/>}/>
+        <Route path='/admin/createService' element={<CreateService/>}/>
       </Routes>
       <Toaster/>
     </Router>

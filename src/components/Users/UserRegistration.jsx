@@ -36,7 +36,7 @@ function UserRegistration() {
                 role:"user",
             });
             toast.success("Registration Successful")
-            navigate('/user/login')
+            navigate('/userLogin')
         }
         catch(error){
             if(error.code === 'auth/email-already-in-use'){

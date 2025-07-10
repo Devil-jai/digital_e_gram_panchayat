@@ -3,15 +3,14 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCaXXO74ZSmsGRMeL8K8XAba0QC2SEl5-I",
-  authDomain: "digital-e-gram-panchayat-3028d.firebaseapp.com",
-  projectId: "digital-e-gram-panchayat-3028d",
-  storageBucket: "digital-e-gram-panchayat-3028d.firebasestorage.app",
-  messagingSenderId: "97051302435",
-  appId: "1:97051302435:web:2c1407453813cc46a4af96"
+  apiKey: "AIzaSyBbLV8q1gUis4IfjGzLwlReGIKqoLqQLeI",
+  authDomain: "digital-e-gram-panchayat-5fd3d.firebaseapp.com",
+  projectId: "digital-e-gram-panchayat-5fd3d",
+  storageBucket: "digital-e-gram-panchayat-5fd3d.firebasestorage.app",
+  messagingSenderId: "172268278551",
+  appId: "1:172268278551:web:2443dbca90100fdc531d52"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 export const db = getFirestore(app)
