@@ -7,6 +7,7 @@ import UserLogin from './components/Users/UserLogin'
 import AdminLogin from './components/Admin/AdminLogin'
 import CreateService from './components/Admin/CreateService'
 import UpdateDeleteServices from './components/Admin/UpdateDeletesServices'
+import ApplyService from './components/Users/ApplyServices'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<HomePage/>}/>
         <Route path='/userRegistration' element={<UserRegistration/>}/>
         <Route path='/userLogin' element={<UserLogin/>}/>
+        <Route path='/user/applyServices' element={<ApplyService/>}/>
         <Route path='/adminLogin' element={<AdminLogin/>}/>
         <Route path='/admin/createService' element={<CreateService/>}/>
         <Route path='/admin/updateDeleteServices' element={<UpdateDeleteServices/>}/>
