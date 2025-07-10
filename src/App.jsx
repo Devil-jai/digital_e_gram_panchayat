@@ -6,6 +6,7 @@ import HomePage from './components/Pages/HomePage'
 import UserLogin from './components/Users/UserLogin'
 import AdminLogin from './components/Admin/AdminLogin'
 import CreateService from './components/Admin/CreateService'
+import UpdateDeleteServices from './components/Admin/UpdateDeletesServices'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/userLogin' element={<UserLogin/>}/>
         <Route path='/adminLogin' element={<AdminLogin/>}/>
         <Route path='/admin/createService' element={<CreateService/>}/>
+        <Route path='/admin/updateDeleteServices' element={<UpdateDeleteServices/>}/>
       </Routes>
       <Toaster/>
     </Router>
