@@ -8,6 +8,7 @@ import AdminLogin from './components/Admin/AdminLogin'
 import CreateService from './components/Admin/CreateService'
 import UpdateDeleteServices from './components/Admin/UpdateDeletesServices'
 import ApplyService from './components/Users/ApplyServices'
+import UpdateApplicationStatus from './components/Admin/UpdateApplicationStatus'
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         <Route path='/adminLogin' element={<AdminLogin/>}/>
         <Route path='/admin/createService' element={<CreateService/>}/>
         <Route path='/admin/updateDeleteServices' element={<UpdateDeleteServices/>}/>
+        <Route path='/admin/updateApplicationsStatus' element={<UpdateApplicationStatus/>}/>
+
       </Routes>
       <Toaster/>
     </Router>
