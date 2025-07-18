@@ -9,6 +9,8 @@ import CreateService from './components/Admin/CreateService'
 import UpdateDeleteServices from './components/Admin/UpdateDeletesServices'
 import ApplyService from './components/Users/ApplyServices'
 import UpdateApplicationStatus from './components/Admin/UpdateApplicationStatus'
+import MyApplicationStatus from './components/Users/MyApplicationStatus'
+import MyProfile from './components/Users/MyProfile'
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path='/userRegistration' element={<UserRegistration/>}/>
         <Route path='/userLogin' element={<UserLogin/>}/>
         <Route path='/user/applyServices' element={<ApplyService/>}/>
+        <Route path='/user/myApplicationStatus' element={<MyApplicationStatus/>}/>
+        <Route path='/user/myProfile' element={<MyProfile/>}/>
         <Route path='/adminLogin' element={<AdminLogin/>}/>
         <Route path='/admin/createService' element={<CreateService/>}/>
         <Route path='/admin/updateDeleteServices' element={<UpdateDeleteServices/>}/>

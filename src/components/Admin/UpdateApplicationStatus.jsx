@@ -11,7 +11,7 @@ function UpdateApplicationStatus() {
 
     const fetchApplications = async () =>{
        try{
-         const snapshot = await getDocs(collectionGroup(db,'services'))
+         const snapshot = await getDocs(collectionGroup(db,'servicesApplications'))
         const appList = snapshot.docs.map(doc=>({
             id:doc.id,
             ref:doc.ref,
@@ -39,7 +39,7 @@ function UpdateApplicationStatus() {
 
     }
 
-
+console.log(applications);
 
     useEffect(()=>{
         fetchApplications()
