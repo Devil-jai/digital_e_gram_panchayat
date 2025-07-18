@@ -11,6 +11,8 @@ import ApplyService from './components/Users/ApplyServices'
 import UpdateApplicationStatus from './components/Admin/UpdateApplicationStatus'
 import MyApplicationStatus from './components/Users/MyApplicationStatus'
 import MyProfile from './components/Users/MyProfile'
+import StaffLogin from './components/Staff/StaffLogin'
+import UpdateApplicationStatus_Staff from './components/Staff/UpdateApplicationStatus_Staff'
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Route path='/admin/createService' element={<CreateService/>}/>
         <Route path='/admin/updateDeleteServices' element={<UpdateDeleteServices/>}/>
         <Route path='/admin/updateApplicationsStatus' element={<UpdateApplicationStatus/>}/>
+        <Route path='/staffLogin' element={<StaffLogin/>}/>
+        <Route path='/staff/updateApplicationsStatus' element={<UpdateApplicationStatus_Staff/>}/>
 
       </Routes>
       <Toaster/>

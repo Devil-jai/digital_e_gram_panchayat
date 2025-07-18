@@ -19,6 +19,12 @@ function HomePage() {
         <Link to='/admin/updateDeleteServices' className='cursor-pointer text-blue-600'>Update/Delete Service</Link>
         <Link to='/admin/updateApplicationsStatus' className='cursor-pointer text-blue-600'>Update Application Status</Link>
         </div>
+        <div className='flex flex-col'>
+          For Staff
+          <Link to='/staffLogin' className='cursor-pointer text-blue-600'>Staff Login</Link>
+          <Link to='/staff/updateApplicationsStatus' className='cursor-pointer text-blue-600'>Update Application Status</Link>
+        
+        </div>
     </div>
   )
 }
