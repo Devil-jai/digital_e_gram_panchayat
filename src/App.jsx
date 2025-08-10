@@ -13,6 +13,7 @@ import MyApplicationStatus from './components/Users/MyApplicationStatus'
 import MyProfile from './components/Users/MyProfile'
 import StaffLogin from './components/Staff/StaffLogin'
 import UpdateApplicationStatus_Staff from './components/Staff/UpdateApplicationStatus_Staff'
+import Navbar from './components/Pages/Navbar'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
     <Router>
+      <Navbar/>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/userRegistration' element={<UserRegistration/>}/>

@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../../Firebase';
 import toast from 'react-hot-toast';
-
+import img from '../../assets/img.svg'
 function StaffLogin() {
      const ADMIN_EMAIL = 'staff@gmail.com'
 
@@ -43,60 +43,89 @@ function StaffLogin() {
         }
     }
   return (
-   <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-sm p-8 bg-white rounded-xl shadow-lg space-y-6"
-      >
-        <h1 className="text-2xl font-semibold text-center text-gray-800">
-          Staff Login
-        </h1>
+   <div className="flex justify-center items-center w-full poppins-medium ">
+      <div className="md:w-1/2 w-full  flex flex-col items-center justify-center h-screen">
+        <div className=" min-[448px]:w-3/4 w-full min-[448px]:px-0 px-8">
+          <div className=" mb-10 text-center">
+            <h2 className="xl:text-3xl mb-3 text-gray-500 lg:text-[20px] md:text-[16px] min-[576px]:text-2xl min-[448px]:text-xl min-[350px]:text-[18px] text-[16px] font-bold">
+            Welcome
+          </h2>
+          
+          </div>
 
-        {/* Email field */}
-        <div className="flex flex-col space-y-1">
-          <label className="text-sm font-medium text-gray-700">Email</label>
-          <input
-            type="email"
-            autoComplete="username"
-            placeholder="admin@example.com"
-            className="p-3 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-            {...register("email", { required: "Email is required" })}
-          />
-          {errors.email && (
-            <span className="text-xs text-red-500">
-              {errors.email.message}
-            </span>
-          )}
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-full flex flex-col gap-5 lg:px-10"
+          >
+           
+
+            <div className=" flex flex-col">
+              <label className="mb-1 text-gray-400 xl:text-[16px] lg:text-[14px] md:text-[12px] min-[576px]:text-[16px]  min-[350px]:text-[14px] text-[12px]">
+                Email address
+              </label>
+              <input
+                type="email"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Invalid email format",
+                  },
+                })}
+                
+                className="py-1 border rounded-[6px] border-gray-300 px-3"
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-2">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+
+            
+
+          
+              <div className="flex flex-col ">
+                <label className="mb-1 text-gray-400 xl:text-[16px] lg:text-[14px] md:text-[12px] min-[576px]:text-[16px]  min-[350px]:text-[14px] text-[12px]">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be at least 6 characters",
+                    },
+                    maxLength: {
+                      value: 20,
+                      message: "Password must not exceed 20 characters",
+                    },
+                  })}
+                  
+                  className="py-1 border rounded-[6px] border-gray-300 px-3"
+                />
+                {errors.password && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.password.message}
+                  </p>
+                )}
+              </div>
+
+          
+
+            <button
+              type="submit"
+              className="btn mt-3 xl:text-[16px] lg:text-[14px] md:text-[12px] min-[576px]:text-[16px]  text-[14px] bg-purple-800 text-white py-2 rounded-[6px]  cursor-pointer hover:bg-purple-900"
+            >
+              Signup
+            </button>
+          </form>
         </div>
-
-        {/* Password field */}
-        <div className="flex flex-col space-y-1">
-          <label className="text-sm font-medium text-gray-700">Password</label>
-          <input
-            type="password"
-            autoComplete="current-password"
-            placeholder="••••••••"
-            className="p-3 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-            {...register("password", {
-              required: "Password is required",
-              minLength: { value: 6, message: "Minimum 6 characters" },
-            })}
-          />
-          {errors.password && (
-            <span className="text-xs text-red-500">
-              {errors.password.message}
-            </span>
-          )}
-        </div>
-
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition disabled:opacity-50"
-        >
-          {isSubmitting ? "Signing In…" : "Login"}
-        </button>
-      </form>
+      </div>
+      <div className=" hidden md:flex justify-center items-center">
+        <img src={img} alt="" className=" lg:w-96 w-70  " />
+      </div>
     </div>
   )
 }
