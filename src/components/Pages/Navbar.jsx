@@ -37,14 +37,14 @@ const Navbar = () => {
     <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-100">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="text-2xl font-bold">Agro-Web-App</div>
+          <div className="text-2xl font-bold">digital-e-gram</div>
 
           <div className="hidden md:flex space-x-6">
-            <Link to="/" className="hover:text-green-600">Home</Link>
-            <Link to="/user/viewcropdetails" className="hover:text-green-600">Crop Info</Link>
-            <Link to="/user/viewgovernmentschemes" className="hover:text-green-600">Govt Schemes</Link>
-            <Link to="/user/viewapplicationstatus" className="hover:text-green-600">Status</Link>
-            <Link to="/aboutUs" className="hover:text-green-600">About</Link>
+            <Link to="/" className="hover:text-purple-600">Home</Link>
+            <Link to="/user/viewcropdetails" className="hover:text-purple-600">Crop Info</Link>
+            <Link to="/user/viewgovernmentschemes" className="hover:text-purple-600">Govt Schemes</Link>
+            <Link to="/user/viewapplicationstatus" className="hover:text-purple-600">Status</Link>
+            <Link to="/aboutUs" className="hover:text-purple-600">About</Link>
           </div>
 
           <div className="hidden md:flex space-x-4">
@@ -72,7 +72,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-2 text-green-600">
+        <div className="md:hidden px-4 pb-4 space-y-2 text-purple-600">
           <Link to="/" className="block" onClick={() => setIsOpen(false)}>Home</Link>
           <Link to="/user/viewcropdetails" className="block" onClick={() => setIsOpen(false)}>Crop Info</Link>
           <Link to="/user/viewgovernmentschemes" className="block" onClick={() => setIsOpen(false)}>Govt Schemes</Link>

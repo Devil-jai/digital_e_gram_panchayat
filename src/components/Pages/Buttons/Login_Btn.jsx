@@ -23,11 +23,11 @@ const StyledWrapper = styled.div`
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    border: 1px solid rgb(78, 194, 81);
+    border: 1px solid rgb(193, 38, 240);
     border-radius: 25px;
     outline: none;
     overflow: hidden;
-    color: rgb(78, 194, 81);
+    color: rgb(193, 38, 240);
     transition: color 0.3s 0.1s ease-out;
     text-align: center;
   }
@@ -56,11 +56,11 @@ const StyledWrapper = styled.div`
 
   button:hover {
     color: #fff;
-    border: 1px solid rgb(78, 194, 81);
+    border: 1px solid rgb(193, 38, 240);
   }
 
   button:hover::before {
-    box-shadow: inset 0 0 0 10em rgb(78, 194, 81);
+    box-shadow: inset 0 0 0 10em rgb(193, 38, 240);
   }`;
 
 export default Login_Btn;

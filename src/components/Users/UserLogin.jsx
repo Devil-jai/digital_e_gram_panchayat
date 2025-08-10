@@ -17,7 +17,7 @@ function UserLogin() {
         try {
             await signInWithEmailAndPassword(auth,email , password)
             toast.success("Login Successful!")
-            navigate('/')
+            navigate('/user/dashboard')
         } catch (error) {
             if(error.code === 'auth/user-not-found'){
                 toast.error('No user found with this email')

@@ -14,6 +14,8 @@ import MyProfile from './components/Users/MyProfile'
 import StaffLogin from './components/Staff/StaffLogin'
 import UpdateApplicationStatus_Staff from './components/Staff/UpdateApplicationStatus_Staff'
 import Navbar from './components/Pages/Navbar'
+import AdminPage from './components/Admin/AdminPage'
+import UserDashboard from './components/Users/UserDashboard'
 
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
         <Route path='/' element={<HomePage/>}/>
         <Route path='/userRegistration' element={<UserRegistration/>}/>
         <Route path='/userLogin' element={<UserLogin/>}/>
+        <Route path='/user/dashboard' element={<UserDashboard/>}/>
         <Route path='/user/applyServices' element={<ApplyService/>}/>
         <Route path='/user/myApplicationStatus' element={<MyApplicationStatus/>}/>
         <Route path='/user/myProfile' element={<MyProfile/>}/>
@@ -33,6 +36,7 @@ function App() {
         <Route path='/admin/createService' element={<CreateService/>}/>
         <Route path='/admin/updateDeleteServices' element={<UpdateDeleteServices/>}/>
         <Route path='/admin/updateApplicationsStatus' element={<UpdateApplicationStatus/>}/>
+        <Route path='/admin/dashboard' element={<AdminPage/>}/>
         <Route path='/staffLogin' element={<StaffLogin/>}/>
         <Route path='/staff/updateApplicationsStatus' element={<UpdateApplicationStatus_Staff/>}/>
 

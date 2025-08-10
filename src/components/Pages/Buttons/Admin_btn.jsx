@@ -21,7 +21,7 @@ const StyledWrapper = styled.div`
   button {
     width: 50px;
     height: 50px;
-    border: 3px solid rgb(78, 194, 81);
+    border: 3px solid rgb(193, 38, 240);
     border-radius: 45px;
     transition: all 0.3s;
     cursor: pointer;
@@ -32,11 +32,11 @@ const StyledWrapper = styled.div`
   }
 
   button:hover {
-    background: rgb(78, 194, 81);
+    background: rgb(193, 38, 240);
   }
 
   svg {
-    fill: rgb(78, 194, 81);
+    fill: rgb(193, 38, 240);
     transition: all 0.3s ease;
     width: 20px;
   }

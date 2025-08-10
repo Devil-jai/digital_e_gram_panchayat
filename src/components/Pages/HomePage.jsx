@@ -24,7 +24,7 @@ function HomePage() {
           For Staff
           <Link to='/staffLogin' className='cursor-pointer text-blue-600'>Staff Login</Link>
           <Link to='/staff/updateApplicationsStatus' className='cursor-pointer text-blue-600'>Update Application Status</Link>
-          <Logout/>
+         
         
         </div>
     </div>
