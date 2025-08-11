@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import toast from 'react-hot-toast'
-import { addDoc, collection, getDoc, getDocs, Timestamp, doc } from 'firebase/firestore'
-import { db } from '../../Firebase'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import {
+  addDoc,
+  collection,
+  getDoc,
+  getDocs,
+  Timestamp,
+  doc,
+} from "firebase/firestore";
+import { db } from "../../Firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function ApplyServices() {
   const [servicedata, setServiceData] = useState([]);
@@ -84,34 +91,57 @@ function ApplyServices() {
   }, []);
 
   return (
-    <div className="h-screen overflow-y-auto relative">
+    <div className="min-h-screen relative flex items-center justify-center py-15">
+      {/* Background image layer */}
       <div
-        className="absolute top-0 left-0 w-full min-h-screen z-10 pt-16 pb-10 px-4"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
-      >
-        <h1 className="text-3xl font-bold text-white text-center mb-10">Available Government Services</h1>
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/flagged/photo-1553067351-2baa7d831199?w=1920&auto=format&fit=crop&q=80')",
+        }}
+      ></div>
+
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+      {/* Centered container */}
+      <div className="relative z-10 w-full max-w-7xl px-4 py-10 flex flex-col items-center">
+        <h1 className="text-3xl font-bold text-white text-center mb-10 drop-shadow-lg">
+          Available Government Services
+        </h1>
 
         {servicedata.length === 0 ? (
-          <p className="text-center text-gray-300">No government services found.</p>
+          <p className="text-center text-gray-200">
+            No government services found.
+          </p>
         ) : (
           <div className="flex flex-wrap justify-center gap-8">
             {servicedata.map((service) => (
               <div
                 key={service.id}
-                className="w-[280px] xl:w-[340px] p-5 bg-white border border-green-500 rounded-2xl shadow-md hover:shadow-green-600 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between gap-3 xl:gap-6 text-gray-900"
+                className="w-[280px] xl:w-[340px] p-5 bg-white/10 backdrop-blur-md border border-green-400 rounded-2xl shadow-lg hover:shadow-green-500 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between gap-3 xl:gap-6 text-white"
               >
                 <div className="flex flex-col gap-3">
-                  <div className="text-green-600 font-bold text-lg text-center py-2">{service.title}</div>
-                  <p className="text-sm"><strong>Eligibility:</strong> {service.eligibility}</p>
-                  <p className="text-sm"><strong>Benefits:</strong> {service.benefits}</p>
-                  <p className="text-sm"><strong>Description:</strong> {service.description}</p>
-                  <p className="text-sm text-gray-600">
-                    <strong>Posted on:</strong> {service.createdAt?.toDate().toLocaleString()}
+                  <div className="text-green-300 font-bold text-lg text-center py-2">
+                    {service.title}
+                  </div>
+                  <p className="text-sm">
+                    <strong>Eligibility:</strong> {service.eligibility}
+                  </p>
+                  <p className="text-sm">
+                    <strong>Benefits:</strong> {service.benefits}
+                  </p>
+                  <p className="text-sm">
+                    <strong>Description:</strong> {service.description}
+                  </p>
+                  <p className="text-sm text-gray-300">
+                    <strong>Posted on:</strong>{" "}
+                    {service.createdAt?.toDate().toLocaleString()}
                   </p>
                 </div>
                 <button
                   onClick={() => setSelectedService(service)}
-                  className="mt-3 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-xl"
+                  className="mt-3 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold rounded-xl transition"
                 >
                   Apply
                 </button>
@@ -121,8 +151,8 @@ function ApplyServices() {
         )}
 
         {selectedService && (
-          <div className="fixed inset-0 flex items-center justify-center z-50 mt-20" style={{ background: "rgba(0, 0, 0, 0.7)" }}>
-            <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 relative flex flex-col gap-3">
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70 backdrop-blur-sm">
+            <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 relative flex flex-col gap-3 animate-fadeIn">
               <button
                 onClick={() => setSelectedService(null)}
                 className="absolute top-2 right-3 text-gray-500 hover:text-black"
@@ -134,7 +164,10 @@ function ApplyServices() {
                 Apply for {selectedService.title}
               </h2>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-4"
+              >
                 <div className="flex flex-col">
                   <label className="mb-1 text-sm">Service Name</label>
                   <input
@@ -163,11 +196,13 @@ function ApplyServices() {
                         message: "Format: 1234-5678-9012",
                       },
                     })}
-                    className="py-1 px-3 border rounded-xl"
+                    className="py-1 px-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400"
                     placeholder="1234-5678-9012"
                   />
                   {errors.aadhaar && (
-                    <p className="text-red-500 text-sm mt-1">{errors.aadhaar.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.aadhaar.message}
+                    </p>
                   )}
                 </div>
 
@@ -181,17 +216,19 @@ function ApplyServices() {
                         message: "Invalid mobile number",
                       },
                     })}
-                    className="py-1 px-3 border rounded-xl"
+                    className="py-1 px-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400"
                     placeholder="9876543210"
                   />
                   {errors.mobile && (
-                    <p className="text-red-500 text-sm mt-1">{errors.mobile.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.mobile.message}
+                    </p>
                   )}
                 </div>
 
                 <button
                   type="submit"
-                  className="bg-green-700 hover:bg-green-800 text-white py-2 rounded-xl"
+                  className="bg-green-600 hover:bg-green-700 text-white py-2 rounded-xl transition"
                 >
                   Submit Application
                 </button>
